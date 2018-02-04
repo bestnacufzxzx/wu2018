@@ -4,14 +4,14 @@ use PHPUnit\Framework\TestCase;
 
 final class AITest extends TestCase
 {
-    public function testGender1(): void
+    public function testGender_Male1(): void
     {
         $result = AI::getGender('สวัสดีครับ');
         $expected_result = 'Male';
         $this->assertEquals($expected_result, $result);
     }
     
-     public function testGender2(): void
+     public function testGender_Male2(): void
     {
         $result = AI::getGender('สวัสดีคราบ');
         $expected_result = 'Male';
@@ -19,64 +19,64 @@ final class AITest extends TestCase
     }
 
 
-    public function testGender3(): void
+    public function testGender_Female3(): void
     {
         $result = AI::getGender('สวัสดีค่ะ');
         $expected_result = 'Female';
         $this->assertEquals($expected_result, $result);
     }
-    public function testGender4(): void
+    public function testGender_Female4(): void
     {
         $result = AI::getGender('สวัสดีคะ');
         $expected_result = 'Female';
         $this->assertEquals($expected_result, $result);
     }
 
-    public function testSentiment1(): void
+    public function testSentiment_Positive1(): void
     {
-        $result = AI::Sentiment('สะบายดีไหม');
+        $result = AI::getSentiment('สะบายดีไหม');
         $expected_result = 'Positive';
         $this->assertEquals($expected_result, $result);
     }
 
-    public function testSentiment2(): void
+    public function testSentiment_Positive2(): void
     {
-        $result = AI::Sentiment('ทำดีมากๆ');
+        $result = AI::getSentiment('ทำดีมากๆ');
         $expected_result = 'Positive';
         $this->assertEquals($expected_result, $result);
     }
 
-    public function testSentiment3(): void
+    public function testSentiment_Positive3(): void
     {
-        $result = AI::Sentiment('ไปสนุกเปล่า');
+        $result = AI::getSentiment('ไปสนุกเปล่า');
         $expected_result = 'Positive';
         $this->assertEquals($expected_result, $result);
     }
 
- 	public function testSentiment4(): void
+ 	public function testSentiment_Negative4(): void
     {
-        $result = AI::Sentiment('โธ่ไอสัส');
+        $result = AI::getSentiment('โธ่ไอสัส');
         $expected_result = 'Negative';
         $this->assertEquals($expected_result, $result);
     }
 
-    public function testSentiment5(): void
+    public function testSentiment_Negative5(): void
     {
-        $result = AI::Sentiment('ว่าไงคุณดอกทอง');
+        $result = AI::getSentiment('ว่าไงคุณดอกทอง');
         $expected_result = 'Negative';
         $this->assertEquals($expected_result, $result);
     }
 
-     public function testRudeWords1(): void
+     public function testRudeWords_fuck6(): void
     {
-        $result = AI::Sentiment('ไอเหี้ยเอ้ย');
+        $result = AI::getRudeWords('ไอเหี้ยเอ้ย');
         $expected_result = 'เหี้ย';
         $this->assertEquals($expected_result, $result);
     }
 
-     public function testRudeWords2(): void
+     public function testRudeWords_fuck7(): void
     {
-        $result = AI::Sentiment('fuckyou');
+        $result = AI::getRudeWords('fuckyou');
         $expected_result = 'fuck';
         $this->assertEquals($expected_result, $result);
     }
