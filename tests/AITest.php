@@ -38,4 +38,51 @@ final class AITest extends TestCase
         $expected_result = 'Positive';
         $this->assertEquals($expected_result, $result);
     }
+    
+    public function testSentiment_Positive(): void
+    {
+        $result = AI::Sentiment('ทำดีมากๆ');
+        $expected_result = 'Positive';
+        $this->assertEquals($expected_result, $result);
+    }
+
+    public function testSentiment_Positive(): void
+    {
+        $result = AI::Sentiment('ไปสนุกเปล่า');
+        $expected_result = 'Positive';
+        $this->assertEquals($expected_result, $result);
+    }
+
+ 	public function testSentiment_Negative(): void
+    {
+        $result = AI::Sentiment('โธ่ไอสัส');
+        $expected_result = 'Negative';
+        $this->assertEquals($expected_result, $result);
+    }
+
+    public function testSentiment_Negative(): void
+    {
+        $result = AI::Sentiment('ว่าไงคุณดอกทอง');
+        $expected_result = 'Negative';
+        $this->assertEquals($expected_result, $result);
+    }
+
+     public function testRudeWords_เหี้ย(): void
+    {
+        $result = AI::Sentiment('ไอเหี้ยเอ้ย');
+        $expected_result = 'เหี้ย';
+        $this->assertEquals($expected_result, $result);
+    }
+
+     public function testRudeWords_fuck(): void
+    {
+        $result = AI::Sentiment('fuckyou');
+        $expected_result = 'fuck';
+        $this->assertEquals($expected_result, $result);
+    }
+
+
+
+
+
 }
