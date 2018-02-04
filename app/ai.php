@@ -18,7 +18,16 @@ class AI
      */
     public static function getGender($text)
     {
-        return 'Male';
+        if((strpos($text, "ครับ") !== false) || (strpos($text, "คร้าบ") !== false) || (strpos($text, "กระผม") !== false) ||
+            (strpos($text, "ผม") !== false) || (strpos($text, "Male") !== false)){
+            return 'Male';
+        }
+        else if((strpos($text, "ค่ะ") !== false) || (strpos($text, "คะ") !== false) || (strpos($text, "ดิฉัน") !== false) ||
+            (strpos($text, "ฉัน") !== false) || (strpos($text, "Female") !== false)){
+            return 'Female';
+        }
+        else
+            return 'Unknown';
     }
 
     /**
@@ -26,7 +35,15 @@ class AI
      */
     public static function getSentiment($text)
     {
-        return 'Neutral';
+        if((strpos($text, "ดี") !== false) || (strpos($text, "ดีมาก") !== false) || (strpos($text, "สนุก") !== false) ||
+            (strpos($text, "ชอบ") !== false)){
+            return 'Positive';
+        }
+        else if((strpos($text, "เหี้ย") !== false) || (strpos($text, "สัส") !== false) || (strpos($text, "fuck") !== false) || (strpos($text, "ดอกทอง") !== false)){
+            return 'Negative';
+        }
+        else
+            return 'Neutral';
     }
 
     /**
@@ -34,7 +51,18 @@ class AI
      */
     public static function getRudeWords($text)
     {
-        return ['แสส'];
+        if(strpos($text, "เหี้ย") !== false){
+            return ['เหี้ย'];
+        }
+        else if(strpos($text, "สัส") !== false){
+            return ['สัส'];
+        } 
+        else if(strpos($text, "fuck") !== false){
+            return ['fuck'];
+        }
+        else if(strpos($text, "ดอกทอง") !== false){
+            return ['ดอกทอง'];
+        }
     }
 
     /**
